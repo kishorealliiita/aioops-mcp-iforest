@@ -1,0 +1,108 @@
+name: Security Scans
+
+on:
+  schedule:
+    # Run security scans weekly
+    - cron: '0 2 * * 1'
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  security_advisory:
+    types: [ published ]
+
+jobs:
+  security-scan:
+    name: Security Vulnerability Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install bandit safety trivy-python-plugin
+        
+    - name: Run Bandit security scan
+      run: |
+        bandit -r app/ -f json -o bandit-report.json
+        bandit -r app/ -f txt -o bandit-report.txt
+        
+    - name: Run Safety check
+      run: |
+        safety check --json --output safety-report.json
+        safety check --full-report --output safety-report.txt
+        
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+        
+    - name: Upload security scan results
+      uses: actions/upload-artifact@v3
+      with:
+        name: security-scan-results
+        path: |
+          bandit-report.json
+          bandit-report.txt
+          safety-report.json
+          safety-report.txt
+          trivy-results.sarif
+        
+    - name: Comment PR with security results
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          
+          let comment = '## 🔒 Security Scan Results\n\n';
+          
+          // Read Bandit results
+          if (fs.existsSync('bandit-report.txt')) {
+            const banditContent = fs.readFileSync('bandit-report.txt', 'utf8');
+            comment += '### Bandit Security Scan\n';
+            comment += '```\n' + banditContent + '\n```\n\n';
+          }
+          
+          // Read Safety results
+          if (fs.existsSync('safety-report.txt')) {
+            const safetyContent = fs.readFileSync('safety-report.txt', 'utf8');
+            comment += '### Safety Check Results\n';
+            comment += '```\n' + safetyContent + '\n```\n\n';
+          }
+          
+          // Add summary
+          comment += '📊 **Summary**: Security scans completed. Review the results above for any vulnerabilities.';
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: comment
+          });
+
+  dependency-review:
+    name: Dependency Review
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Dependency Review
+      uses: actions/dependency-review-action@v3
+      with:
+        fail-on-severity: moderate 

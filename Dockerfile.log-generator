@@ -1,0 +1,11 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY app/simulator/log_simulator.py .
+
+RUN pip install --no-cache-dir requests
+
+ENV MODEL_SERVER_URL=http://aiops-iforest:8000/api/v1/stream/multi-source
+
+CMD ["python", "log_simulator.py"]

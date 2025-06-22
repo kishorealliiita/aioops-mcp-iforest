@@ -1,0 +1,142 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Security and CI/CD reports
+bandit-report.json
+safety-report.json
+trivy-report.json
+*.security.json
+*.vulnerability.json
+
+# Model artifacts
+*.pkl
+*.joblib
+*.h5
+models/
+*.model
+
+# Environment files
+.env
+.env.*
+*.env
+
+# Docker
+*.log
+*.pid
+.dockerignore
+
+# VS Code and other editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Helm chart build output
+helm/open-aiops-iforest/charts/
+helm/open-aiops-iforest/tmp/
+
+# Kubernetes
+*.kubeconfig
+kubeconfig
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Local development
+.local/
+local/
+
+# IDE specific
+.atom/
+.brackets.json
+.sublime-project
+.sublime-workspace
+
+# OS generated files
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Application specific
+feedback/anomalies.json
+feedback/labeled_data.json

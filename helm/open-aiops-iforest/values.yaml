@@ -1,0 +1,99 @@
+# Default values for open-aiops-iforest.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: aioops-mcp-iforest
+  pullPolicy: Never
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 8000
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# Log generator configuration
+logGenerator:
+  enabled: false
+  image:
+    repository: aioops-mcp-log-generator
+    tag: "latest"
+    pullPolicy: Never
+  modelServerUrl: "http://aiops-iforest:8000/api/v1/stream/multi-source"
+  interval: 5
+
+env:
+
+  # Model Settings
+  MODEL_PATH: "models/isolation_forest_model.pkl"
+  MODEL_CONTAMINATION: "0.05"
+  MODEL_RANDOM_STATE: "42"
+  
+  # Anomaly Detection & Alerting
+  #ANOMALY_THRESHOLD: "-0.5"
+  #ALERT_CONDITIONS: '{"web_server": {"response_time": 1500, "error_rate": 0.1}, "database": {"query_time_ms": 3000}, "__default__": {"cpu_usage_percent": 95, "memory_usage_mb": 500}}'
+  #COMPLEX_ALERT_RULES: '{"web_server": {"count": 5, "window_seconds": 60}, "database": {"count": 10, "window_seconds": 300}, "__default__": {"count": 20, "window_seconds": 300}}'
+
+  # Alerting Plugins (replace with your actual secrets in a separate values file or via --set)
+  SLACK_WEBHOOK_URL: "your_slack_webhook_url"
+  PAGERDUTY_ROUTING_KEY: "your_pagerduty_routing_key"
+  GENERIC_WEBHOOK_URL: "any_http_webhook_url"
+
+  # Logging Settings
+  LOG_LEVEL: "INFO"
+
+  # Anomaly Storage Settings
+  MAX_RECENT_ANOMALIES: "500"

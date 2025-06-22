@@ -1,0 +1,5 @@
+apiVersion: v2
+name: aiops-iforest
+description: AIOps with Isolation Forest - model server + log generator
+version: 0.1.0
+appVersion: "1.0.0"

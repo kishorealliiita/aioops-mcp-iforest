@@ -1,0 +1,24 @@
+{{- if .Values.logGenerator.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: log-generator
+  labels:
+    app: log-generator
+spec:
+  template:
+    metadata:
+      labels:
+        app: log-generator
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: log-generator
+          image: "{{ .Values.logGenerator.image.repository }}:{{ .Values.logGenerator.image.tag }}"
+          imagePullPolicy: {{ .Values.logGenerator.image.pullPolicy }}
+          env:
+            - name: MODEL_SERVER_URL
+              value: {{ .Values.logGenerator.modelServerUrl | quote }}
+            - name: INTERVAL
+              value: {{ .Values.logGenerator.interval | quote }}
+{{- end }}

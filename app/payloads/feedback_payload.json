@@ -1,0 +1,22 @@
+{
+    "feedback": [
+      {
+        "log": {
+          "raw_log": "2025-06-21T12:30:00Z ERROR query_time=12000ms connection_count=950 error_rate=0.85",
+          "service": "database",
+          "source": "postgresql",
+          "format_type": "key_value"
+        },
+        "is_anomaly": 1
+      },
+      {
+        "log": {
+          "raw_log": "{\"timestamp\": \"2025-06-21T12:30:05Z\", \"level\": \"INFO\", \"response_time\": 150, \"message\": \"User login successful\"}",
+          "service": "web_server",
+          "source": "nginx",
+          "format_type": "json"
+        },
+        "is_anomaly": 0
+      }
+    ]
+  } 

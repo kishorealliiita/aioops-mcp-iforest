@@ -1,0 +1,344 @@
+{
+  "logs": [
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:00Z\", \"level\": \"INFO\", \"response_time\": 120, \"message\": \"Request processed\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:10Z\", \"level\": \"INFO\", \"response_time\": 120, \"message\": \"Request processed\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:01Z INFO query_time=80ms connection_count=15 error_rate=0.01",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:02Z [INFO] Memory usage: 45% CPU usage: 25% Thread count: 50",
+      "service": "application",
+      "source": "java_app",
+      "format_type": "regex",
+      "custom_config": {
+        "pattern": "(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:?\\d{2})?)\\s+\\[(\\w+)\\]\\s+Memory usage: (\\d+)%\\s+CPU usage: (\\d+)%\\s+Thread count: (\\d+)",
+        "field_mapping": { "0": "timestamp", "1": "level", "2": "memory_usage", "3": "cpu_usage", "4": "thread_count" }
+      }
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:03Z\", \"level\": \"INFO\", \"response_time\": 110, \"message\": \"Data retrieved\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:04Z INFO query_time=95ms connection_count=18 error_rate=0.02",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:05Z\", \"level\": \"INFO\", \"response_time\": 130, \"message\": \"User authenticated\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:06Z INFO query_time=75ms connection_count=12 error_rate=0.00",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:07Z [INFO] Memory usage: 48% CPU usage: 22% Thread count: 55",
+      "service": "application",
+      "source": "java_app",
+      "format_type": "regex",
+      "custom_config": {
+        "pattern": "(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:?\\d{2})?)\\s+\\[(\\w+)\\]\\s+Memory usage: (\\d+)%\\s+CPU usage: (\\d+)%\\s+Thread count: (\\d+)",
+        "field_mapping": { "0": "timestamp", "1": "level", "2": "memory_usage", "3": "cpu_usage", "4": "thread_count" }
+      }
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:08Z\", \"level\": \"INFO\", \"response_time\": 150, \"message\": \"File uploaded\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:09Z INFO query_time=105ms connection_count=20 error_rate=0.01",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:10Z\", \"level\": \"INFO\", \"response_time\": 125, \"message\": \"Request processed\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:11Z INFO query_time=85ms connection_count=16 error_rate=0.01",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:12Z [INFO] Memory usage: 50% CPU usage: 30% Thread count: 60",
+      "service": "application",
+      "source": "java_app",
+      "format_type": "regex",
+      "custom_config": {
+        "pattern": "(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:?\\d{2})?)\\s+\\[(\\w+)\\]\\s+Memory usage: (\\d+)%\\s+CPU usage: (\\d+)%\\s+Thread count: (\\d+)",
+        "field_mapping": { "0": "timestamp", "1": "level", "2": "memory_usage", "3": "cpu_usage", "4": "thread_count" }
+      }
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:13Z\", \"level\": \"INFO\", \"response_time\": 115, \"message\": \"Data retrieved\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:14Z INFO query_time=100ms connection_count=19 error_rate=0.02",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:15Z\", \"level\": \"INFO\", \"response_time\": 135, \"message\": \"User authenticated\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:16Z INFO query_time=70ms connection_count=11 error_rate=0.00",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:17Z [INFO] Memory usage: 47% CPU usage: 23% Thread count: 54",
+      "service": "application",
+      "source": "java_app",
+      "format_type": "regex",
+      "custom_config": {
+        "pattern": "(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:?\\d{2})?)\\s+\\[(\\w+)\\]\\s+Memory usage: (\\d+)%\\s+CPU usage: (\\d+)%\\s+Thread count: (\\d+)",
+        "field_mapping": { "0": "timestamp", "1": "level", "2": "memory_usage", "3": "cpu_usage", "4": "thread_count" }
+      }
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:18Z\", \"level\": \"INFO\", \"response_time\": 155, \"message\": \"File uploaded\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:19Z INFO query_time=110ms connection_count=21 error_rate=0.01",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:20Z\", \"level\": \"INFO\", \"response_time\": 128, \"message\": \"Request processed\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:21Z INFO query_time=88ms connection_count=17 error_rate=0.01",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:22Z [INFO] Memory usage: 52% CPU usage: 32% Thread count: 62",
+      "service": "application",
+      "source": "java_app",
+      "format_type": "regex",
+      "custom_config": {
+        "pattern": "(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:?\\d{2})?)\\s+\\[(\\w+)\\]\\s+Memory usage: (\\d+)%\\s+CPU usage: (\\d+)%\\s+Thread count: (\\d+)",
+        "field_mapping": { "0": "timestamp", "1": "level", "2": "memory_usage", "3": "cpu_usage", "4": "thread_count" }
+      }
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:23Z\", \"level\": \"INFO\", \"response_time\": 118, \"message\": \"Data retrieved\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:24Z INFO query_time=103ms connection_count=20 error_rate=0.02",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:25Z\", \"level\": \"INFO\", \"response_time\": 138, \"message\": \"User authenticated\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:26Z INFO query_time=73ms connection_count=13 error_rate=0.00",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:27Z [INFO] Memory usage: 49% CPU usage: 24% Thread count: 56",
+      "service": "application",
+      "source": "java_app",
+      "format_type": "regex",
+      "custom_config": {
+        "pattern": "(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:?\\d{2})?)\\s+\\[(\\w+)\\]\\s+Memory usage: (\\d+)%\\s+CPU usage: (\\d+)%\\s+Thread count: (\\d+)",
+        "field_mapping": { "0": "timestamp", "1": "level", "2": "memory_usage", "3": "cpu_usage", "4": "thread_count" }
+      }
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:28Z\", \"level\": \"INFO\", \"response_time\": 158, \"message\": \"File uploaded\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:29Z INFO query_time=113ms connection_count=22 error_rate=0.01",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:30Z\", \"level\": \"INFO\", \"response_time\": 121, \"message\": \"Request processed\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:31Z INFO query_time=81ms connection_count=14 error_rate=0.01",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:32Z [INFO] Memory usage: 46% CPU usage: 26% Thread count: 51",
+      "service": "application",
+      "source": "java_app",
+      "format_type": "regex",
+      "custom_config": {
+        "pattern": "(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:?\\d{2})?)\\s+\\[(\\w+)\\]\\s+Memory usage: (\\d+)%\\s+CPU usage: (\\d+)%\\s+Thread count: (\\d+)",
+        "field_mapping": { "0": "timestamp", "1": "level", "2": "memory_usage", "3": "cpu_usage", "4": "thread_count" }
+      }
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:33Z\", \"level\": \"INFO\", \"response_time\": 111, \"message\": \"Data retrieved\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:34Z INFO query_time=96ms connection_count=17 error_rate=0.02",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:35Z\", \"level\": \"INFO\", \"response_time\": 131, \"message\": \"User authenticated\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:36Z INFO query_time=76ms connection_count=10 error_rate=0.00",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:37Z [INFO] Memory usage: 48% CPU usage: 21% Thread count: 53",
+      "service": "application",
+      "source": "java_app",
+      "format_type": "regex",
+      "custom_config": {
+        "pattern": "(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:?\\d{2})?)\\s+\\[(\\w+)\\]\\s+Memory usage: (\\d+)%\\s+CPU usage: (\\d+)%\\s+Thread count: (\\d+)",
+        "field_mapping": { "0": "timestamp", "1": "level", "2": "memory_usage", "3": "cpu_usage", "4": "thread_count" }
+      }
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:38Z\", \"level\": \"INFO\", \"response_time\": 151, \"message\": \"File uploaded\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:39Z INFO query_time=106ms connection_count=23 error_rate=0.01",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:40Z\", \"level\": \"INFO\", \"response_time\": 123, \"message\": \"Request processed\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:41Z INFO query_time=83ms connection_count=15 error_rate=0.01",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:42Z [INFO] Memory usage: 51% CPU usage: 31% Thread count: 61",
+      "service": "application",
+      "source": "java_app",
+      "format_type": "regex",
+      "custom_config": {
+        "pattern": "(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:?\\d{2})?)\\s+\\[(\\w+)\\]\\s+Memory usage: (\\d+)%\\s+CPU usage: (\\d+)%\\s+Thread count: (\\d+)",
+        "field_mapping": { "0": "timestamp", "1": "level", "2": "memory_usage", "3": "cpu_usage", "4": "thread_count" }
+      }
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:43Z\", \"level\": \"INFO\", \"response_time\": 113, \"message\": \"Data retrieved\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:44Z INFO query_time=101ms connection_count=18 error_rate=0.02",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:45Z\", \"level\": \"INFO\", \"response_time\": 133, \"message\": \"User authenticated\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:46Z INFO query_time=71ms connection_count=12 error_rate=0.00",
+      "service": "database",
+      "source": "postgresql",
+      "format_type": "key_value"
+    },
+    {
+      "raw_log": "2025-06-21T10:00:47Z [INFO] Memory usage: 49% CPU usage: 22% Thread count: 55",
+      "service": "application",
+      "source": "java_app",
+      "format_type": "regex",
+      "custom_config": {
+        "pattern": "(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:?\\d{2})?)\\s+\\[(\\w+)\\]\\s+Memory usage: (\\d+)%\\s+CPU usage: (\\d+)%\\s+Thread count: (\\d+)",
+        "field_mapping": { "0": "timestamp", "1": "level", "2": "memory_usage", "3": "cpu_usage", "4": "thread_count" }
+      }
+    },
+    {
+      "raw_log": "{\"timestamp\": \"2025-06-21T10:00:48Z\", \"level\": \"INFO\", \"response_time\": 153, \"message\": \"File uploaded\"}",
+      "service": "web_server",
+      "source": "nginx",
+      "format_type": "json"
+    }
+  ]
+}
