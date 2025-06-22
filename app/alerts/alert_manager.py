@@ -1,8 +1,9 @@
-from typing import Dict, Any, List, Protocol, Optional
+from typing import Any, Dict, List, Optional, Protocol
+
 
 class AlertPlugin(Protocol):
-    def send_alert(self, message: str, details: Dict[str, Any], alert_type: Optional[str] = None) -> None:
-        ...
+    def send_alert(self, message: str, details: Dict[str, Any], alert_type: Optional[str] = None) -> None: ...
+
 
 class AlertManager:
     def __init__(self):
@@ -21,6 +22,7 @@ class AlertManager:
                 plugin.send_alert(message, details, alert_type)
             except Exception as e:
                 print(f"[AlertManager] Error sending alert via {plugin.__class__.__name__}: {e}")
+
 
 # Create a single, global instance to be used across the application
 alert_manager = AlertManager()

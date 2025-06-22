@@ -2,6 +2,7 @@ import json
 import os
 from threading import Lock
 from typing import List
+
 from fastapi.encoders import jsonable_encoder
 
 from app.config import settings
@@ -22,7 +23,7 @@ class FeedbackService:
         try:
             os.makedirs(os.path.dirname(self.storage_path), exist_ok=True)
             if not os.path.exists(self.storage_path):
-                with open(self.storage_path, 'w') as f:
+                with open(self.storage_path, "w") as f:
                     json.dump([], f)
                 logger.info(f"Created new feedback storage file at {self.storage_path}")
         except IOError as e:
@@ -43,7 +44,7 @@ class FeedbackService:
 
                 # Read existing data, handling empty file case
                 if os.path.getsize(self.storage_path) > 0:
-                    with open(self.storage_path, 'r') as f:
+                    with open(self.storage_path, "r") as f:
                         data = json.load(f)
                 else:
                     data = []
@@ -53,9 +54,9 @@ class FeedbackService:
                     data.append(jsonable_encoder(record))
 
                 # Write back to the file
-                with open(self.storage_path, 'w') as f:
+                with open(self.storage_path, "w") as f:
                     json.dump(data, f, indent=4)
-                
+
                 logger.info(f"Successfully saved {len(feedback_records)} feedback records to {self.storage_path}")
 
             except (IOError, json.JSONDecodeError) as e:
@@ -65,6 +66,7 @@ class FeedbackService:
 # Global feedback service instance
 feedback_service = FeedbackService(storage_path=settings.feedback_store_path)
 
+
 def get_feedback_service() -> FeedbackService:
     """Dependency injector for the feedback service."""
-    return feedback_service 
+    return feedback_service

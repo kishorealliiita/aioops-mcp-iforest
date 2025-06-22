@@ -1,6 +1,8 @@
-import requests
-from typing import Dict, Any, Optional
 import json
+from typing import Any, Dict, Optional
+
+import requests
+
 
 class PagerDutyAlertPlugin:
     def __init__(self, routing_key: str):
@@ -18,12 +20,14 @@ class PagerDutyAlertPlugin:
                 "summary": message,
                 "source": details.get("service", "AIOps-Service"),
                 "severity": "critical",
-                "custom_details": details
-            }
+                "custom_details": details,
+            },
         }
-        
+
         try:
-            response = requests.post(self.api_url, data=json.dumps(payload), headers={'Content-Type': 'application/json'}, timeout=5)
+            response = requests.post(
+                self.api_url, data=json.dumps(payload), headers={"Content-Type": "application/json"}, timeout=5
+            )
             response.raise_for_status()
         except requests.exceptions.RequestException as e:
             print(f"Error sending PagerDuty alert: {e}")
