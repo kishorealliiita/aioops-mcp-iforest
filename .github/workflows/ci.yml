@@ -41,7 +41,8 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install --upgrade setuptools wheel
+        pip install -r requirements.txt || pip install -r requirements.txt --use-pep517
         pip install flake8 black isort bandit safety pytest pytest-cov
         
     - name: Run linting checks
