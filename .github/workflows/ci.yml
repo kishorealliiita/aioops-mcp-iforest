@@ -42,7 +42,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install flake8 black isort bandit safety
+        pip install flake8 black isort bandit safety pytest pytest-cov
         
     - name: Run linting checks
       run: |
@@ -86,6 +86,7 @@ jobs:
           htmlcov/
           bandit-report.json
           safety-report.json
+        if-no-files-found: warn
 
   # Build and Push Docker Images
   build:
