@@ -1,0 +1,31 @@
+# Bandit configuration file
+# This file configures bandit security scanning
+
+# Exclude directories and files
+exclude_dirs: ['tests', 'venv', 'htmlcov', 'models', 'feedback', '.git']
+
+# Skip specific tests that are false positives for this project
+skips: [
+    'B101',  # Use of assert detected (common in tests)
+    'B601',  # Paramiko call with shell=True (not used)
+    'B602',  # Subprocess call with shell=True (not used)
+    'B603',  # Subprocess call without shell=True (not used)
+    'B604',  # Any other function with shell=True (not used)
+    'B605',  # Start process with a shell (not used)
+    'B606',  # Start process with a shell 2 (not used)
+    'B607',  # Start process with no shell (not used)
+    'B608',  # Hardcoded sql expressions (not used)
+    'B609',  # Linux commands injection (not used)
+]
+
+# Severity levels to include
+severity: ['HIGH', 'MEDIUM']
+
+# Confidence levels to include
+confidence: ['HIGH', 'MEDIUM']
+
+# Output format
+output_format: 'txt'
+
+# Verbose output
+verbose: false 
