@@ -127,7 +127,7 @@ jobs:
           type=sha,prefix={{branch}}-
           
     - name: Build and push main application
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         context: .
         file: ./Dockerfile
@@ -138,7 +138,7 @@ jobs:
         cache-to: type=gha,mode=max
         
     - name: Build and push log generator
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         context: .
         file: ./Dockerfile.log-generator
