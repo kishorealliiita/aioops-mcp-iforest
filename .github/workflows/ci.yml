@@ -159,7 +159,7 @@ jobs:
       
     - name: Generate release notes
       id: release_notes
-      uses: actions/github-script@v7
+      uses: actions/github-script@v8
       with:
         script: |
           const { data: commits } = await github.rest.repos.compareCommits({
@@ -176,7 +176,7 @@ jobs:
           return notes;
           
     - name: Update release
-      uses: actions/github-script@v7
+      uses: actions/github-script@v8
       with:
         script: |
           await github.rest.repos.updateRelease({
@@ -210,7 +210,7 @@ jobs:
       run: pytest tests/ -v
       
     - name: Comment PR
-      uses: actions/github-script@v7
+      uses: actions/github-script@v8
       if: success()
       with:
         script: |
