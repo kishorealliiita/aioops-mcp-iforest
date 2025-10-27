@@ -49,7 +49,7 @@ jobs:
         ignore-unfixed: true
         
     - name: Upload security scan results
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: security-scan-results
         path: |
