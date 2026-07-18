@@ -221,6 +221,7 @@ class ModelService:
                 self._model_instance = new_model
 
             self._save_model()
+            self.metrics["last_trained"] = datetime.now()
             logger.info("Model retraining complete.")
 
         except Exception as e:
